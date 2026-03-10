@@ -14,7 +14,7 @@ const CLASSES_DATA = [
     fee: "$1200",
     time: "08:30 am - 11:30 am",
     description:
-      "A gentle introduction to social interaction and sensory exploration for our youngest learners.",
+      "A gentle introduction to social interaction and sensory exploration for our youngest learners. A gentle introduction to social interaction and sensory exploration for our youngest learners.",
   },
   {
     id: 2,
