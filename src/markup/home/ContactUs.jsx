@@ -105,64 +105,47 @@ const ContactSection = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-400 uppercase ml-1">
-                      Parent Name
-                    </label>
                     <input
                       required
                       type="text"
-                      className="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#4A60EF] focus:ring-1 focus:ring-[#4A60EF] transition-all"
-                      placeholder="John Doe"
+                      placeholder="Parent Name"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-[#4A60EF] transition-all"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-400 uppercase ml-1">
-                      Email Address
-                    </label>
                     <input
                       required
                       type="email"
-                      className="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#4A60EF] transition-all"
-                      placeholder="john@example.com"
+                      placeholder="Email Address"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-[#4A60EF] transition-all"
                     />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-400 uppercase ml-1">
-                      Child's Age
-                    </label>
-                    <select className="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#4A60EF] transition-all appearance-none">
-                      <option className="bg-slate-900">2 - 3 Years</option>
-                      <option className="bg-slate-900">3 - 5 Years</option>
-                      <option className="bg-slate-900">5+ Years</option>
+                    <select className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-slate-400 focus:outline-none focus:border-[#4A60EF] transition-all appearance-none">
+                      <option>Select Child's Age</option>
+                      <option>2-3 Years</option>
+                      <option>3-5 Years</option>
+                      <option>5+ </option>
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-400 uppercase ml-1">
-                      Program of Interest
-                    </label>
-                    <select className="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#4A60EF] transition-all appearance-none">
-                      <option className="bg-slate-900">
-                        Montessori Preschool
-                      </option>
-                      <option className="bg-slate-900">
-                        Elementary School
-                      </option>
-                      <option className="bg-slate-900">STEM & Robotics</option>
+                    <select className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-slate-400 focus:outline-none focus:border-[#4A60EF] transition-all appearance-none">
+                      <option>Select Program of Interest</option>
+                      <option>Toddler (2-3 Years)</option>
+                      <option>Primary (3-6 Years)</option>
+                      <option>Elementary (6-9 Years)</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-400 uppercase ml-1">
-                    Message / Questions
-                  </label>
                   <textarea
                     rows="4"
-                    className="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#4A60EF] transition-all"
-                    placeholder="Tell us about your child..."
+                    placeholder="Your Message || Tell us about your child"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-[#4A60EF] transition-all"
                   ></textarea>
                 </div>
 
@@ -174,7 +157,7 @@ const ContactSection = () => {
                     "SENDING..."
                   ) : (
                     <>
-                      SUBMIT ENROLLMENT INQUIRY
+                      SUBMITINQUIRY
                       <Send size={20} />
                     </>
                   )}

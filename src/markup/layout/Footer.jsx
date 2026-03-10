@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   MapPin,
   Phone,
+  Youtube,
 } from "lucide-react";
 import { scrollToSection } from "../../hooks/useScrollSpy";
 
@@ -19,22 +20,22 @@ const Footer = () => {
     {
       id: 1,
       name: "American Montessori Society",
-      logo: "https://via.placeholder.com/120x60?text=AMS+Logo",
+      logo: "https://amshq.org/wp-content/uploads/2025/03/AMS-Logo.webp",
     },
     {
       id: 2,
       name: "Cognia Accredited",
-      logo: "https://via.placeholder.com/120x60?text=COGNIA",
+      logo: "https://cdn.edmentum.com/assets/photo/tfs/overview/_1200x630_crop_center-center_82_none/Cognia-logo.png?mtime=1700187584",
     },
     {
       id: 3,
       name: "STEM Certified",
-      logo: "https://via.placeholder.com/120x60?text=STEM+Org",
+      logo: "https://i0.wp.com/sg.nullspace.co/wp-content/uploads/STEM.org-Accredited-Educational-Experience.png?fit=2000%2C884&ssl=1",
     },
     {
       id: 4,
       name: "International Baccalaureate",
-      logo: "https://via.placeholder.com/120x60?text=IB+World",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCPDnBCEac3WMoV0S92YmVfqLPDm8bmcE28Q&s",
     },
   ];
 
@@ -161,6 +162,39 @@ const Footer = () => {
               </button>
               {/* Decorative Circle */}
               <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[#4A60EF]/20 rounded-full blur-2xl" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* --- Section 2: Links & Branding --- */}
+      <div className="border-t border-white/5 py-16 bg-black/20">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-10">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-[#4A60EF] rounded-2xl flex items-center justify-center text-white font-black text-xl">
+                E
+              </div>
+              <div>
+                <h3 className="text-white font-black text-2xl tracking-tighter">
+                  EDLYS <span className="text-[#4A60EF]">MONTESSORI</span>
+                </h3>
+                <p className="text-slate-500 text-[10px] uppercase font-bold tracking-widest">
+                  Nurturing curiosity since 1998
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#4A60EF] hover:text-white transition-all"
+                >
+                  <Icon size={20} />
+                </a>
+              ))}
             </div>
           </div>
         </div>

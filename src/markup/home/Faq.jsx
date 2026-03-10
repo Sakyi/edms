@@ -35,6 +35,7 @@ const FAQ = () => {
 
   return (
     <section id="faq" className="py-24 bg-white relative">
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#ed5ab0]/10 rounded-full blur-[120px]" />
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-16">
           {/* Left Side: Header Content */}
