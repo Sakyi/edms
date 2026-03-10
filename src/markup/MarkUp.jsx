@@ -7,7 +7,7 @@ const MarkUp = () => {
     <Router basename="/">
       <div className="">
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/edms" element={<HomePage />} />
         </Routes>
       </div>
       {/* <ScrollToTop /> */}
