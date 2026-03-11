@@ -33,7 +33,6 @@ const HomePage = () => {
         <Blog />
         <ContactSection />
       </main>
-      <ScrollToTop />
       <Footer />
       <ScrollToTop />
     </div>
