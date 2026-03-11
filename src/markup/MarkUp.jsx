@@ -9,9 +9,9 @@ const MarkUp = () => {
     <Router basename="/">
       <div className="">
         <Routes>
-          <Route path="/edms" element={<HomePage />} />
-          <Route path="/edms/events" element={<Event />} />
-          <Route path="/edms/eventdetails" element={<EventDetails />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/events" element={<Event />} />
+          <Route path="/eventdetails" element={<EventDetails />} />
         </Routes>
       </div>
       {/* <ScrollToTop /> */}
