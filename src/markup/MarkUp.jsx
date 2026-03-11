@@ -10,8 +10,8 @@ const MarkUp = () => {
       <div className="">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/events" element={<Event />} />
-          <Route path="/eventdetails" element={<EventDetails />} />
+          <Route path="edms-olive.vercel.app/events" element={<Event />} />
+          <Route path="edms-olive.vercel.app/eventdetails" element={<EventDetails />} />
         </Routes>
       </div>
       {/* <ScrollToTop /> */}
