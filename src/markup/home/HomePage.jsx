@@ -12,7 +12,7 @@ import FAQ from "./Faq";
 import WelcomeSection from "./Welcome";
 import Gallery from "./Gallery";
 import MeetTheTeam from "./MeetTheTeam";
-import ScrollToTop from "./scrollToTop";
+import ScrollToTop from "./ScrollToTop";
 import Blog from "./NewsBlog";
 
 const HomePage = () => {
