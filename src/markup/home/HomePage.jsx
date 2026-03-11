@@ -12,6 +12,8 @@ import FAQ from "./Faq";
 import WelcomeSection from "./Welcome";
 import Gallery from "./Gallery";
 import MeetTheTeam from "./MeetTheTeam";
+import ScrollToTop from "./scrollToTop";
+import Blog from "./NewsBlog";
 
 const HomePage = () => {
   return (
@@ -28,9 +30,12 @@ const HomePage = () => {
         <MeetTheTeam />
         <Testimonials />
         <FAQ />
+        <Blog />
         <ContactSection />
       </main>
+      <ScrollToTop />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
