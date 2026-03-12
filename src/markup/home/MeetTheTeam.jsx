@@ -34,8 +34,7 @@ const TEAM_DATA = [
     name: "Sofia Rodriguez",
     role: "Arts & Music Director",
     specialty: "Classical Piano & Ballet",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400",
+    image: "/jessy.png",
     bio: "Bringing the rhythm of Montessori into the creative arts and physical expression.",
   },
   {

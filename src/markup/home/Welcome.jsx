@@ -10,9 +10,9 @@ import React from "react";
 
 // Sample Data Integrated to avoid external dependencies
 const SCHOOL_STATS = [
-  { label: "Years of Excellence", value: "25+" },
+  { label: "Years of Excellence", value: "20" },
   { label: "Certified Educators", value: "40+" },
-  { label: "Happy Students", value: "1.2k+" },
+  { label: "Happy Students", value: "700+" },
 ];
 
 const SCHOOL_INFO = {
@@ -23,9 +23,9 @@ const SCHOOL_INFO = {
     "Our campus combines modern facilities with traditional Montessori tools, creating a holistic environment where academic excellence goes hand-in-hand with social and emotional growth.",
   ],
   vision:
-    "To be a global leader in early childhood education, fostering a generation of independent, compassionate, and lifelong learners.",
+    "To create an enabling environment that would provide a very high quality basic education that ensures a holistic development of all pupils to make them functionally literate in all spheres of life.",
   mission:
-    "To provide a structured yet flexible environment that respects the individuality of every child, encouraging discovery through play and hands-on learning.",
+    "To create an enabling environment that would provide a very high quality basic education that ensures a holistic development of all pupils to make them functionally literate in all spheres of life.",
   objective:
     "Building critical thinking, self-discipline, and social harmony in every student we guide.",
 };
@@ -42,7 +42,7 @@ const WelcomeSection = () => {
               <div className="inline-flex items-center gap-2.5 px-5 py-2.5 border border-[#4A60EF]/20 bg-[#4A60EF]/5 rounded-full w-fit">
                 <GraduationCap className="w-4 h-4 text-[#4A60EF]" />
                 <span className="text-sm font-bold text-[#4A60EF] uppercase tracking-wider">
-                  Est. 1998
+                  Est. 2006
                 </span>
                 <Sparkles className="w-4 h-4 text-[#ed5ab0]" />
               </div>

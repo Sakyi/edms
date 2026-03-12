@@ -7,8 +7,7 @@ const CLASSES_DATA = [
   {
     id: 1,
     title: "Toddler Discovery",
-    images:
-      "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&q=80&w=800",
+    images: "/edmscaru3.jpg",
     age: "2 - 3",
     size: "12 - 15",
     fee: "$1200",
@@ -19,8 +18,7 @@ const CLASSES_DATA = [
   {
     id: 2,
     title: "Primary Montessori",
-    images:
-      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
+    images: "/edmscaru5.jpg",
     age: "3 - 6",
     size: "20 - 25",
     fee: "$1500",
@@ -31,8 +29,7 @@ const CLASSES_DATA = [
   {
     id: 3,
     title: "Lower Elementary",
-    images:
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800",
+    images: "/edmscaru6.jpg",
     age: "6 - 9",
     size: "15 - 20",
     fee: "$1800",
@@ -113,8 +110,10 @@ const Classes = () => {
                 <img
                   src={item.images}
                   alt={item.title}
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
+
                 {/* Time Badge */}
                 <div className="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur-md text-white px-5 py-2.5 rounded-2xl flex items-center gap-2 text-xs font-bold">
                   <Clock size={16} className="text-[#ed5ab0]" />

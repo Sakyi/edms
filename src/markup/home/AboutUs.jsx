@@ -35,7 +35,7 @@ const AboutSection = () => {
             {/* Main Image */}
             <div className="relative z-10 rounded-[40px] overflow-hidden shadow-2xl border-8 border-white">
               <img
-                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800"
+                src="/edmscaru4.jpg"
                 alt="Children Learning"
                 className="w-full h-full object-cover"
               />
@@ -43,7 +43,7 @@ const AboutSection = () => {
 
             {/* Floating Experience Card */}
             <div className="absolute -bottom-10 -right-10 z-20 bg-white p-8 rounded-3xl shadow-xl hidden md:block border-b-4 border-[#4A60EF]">
-              <div className="text-5xl font-black text-[#4A60EF]">25+</div>
+              <div className="text-5xl font-black text-[#4A60EF]">20</div>
               <div className="text-slate-600 font-bold uppercase tracking-tighter text-sm">
                 Years of Educational
                 <br />

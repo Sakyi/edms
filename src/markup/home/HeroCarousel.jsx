@@ -1,185 +1,189 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Loader2,
-  Volume2,
-  VolumeX,
-} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, Play, ArrowRight } from "lucide-react";
 
-const HERO_SLIDES = [
+const slides = [
   {
-    id: 1,
-    // Using a video background for the primary slide
-    video: "https://www.pexels.com/download/video/5198164/",
-    poster:
-      "https://media.istockphoto.com/id/2217360610/photo/businesswoman-smiling-and-holding-tablet-during-a-business-conference.jpg?s=1024x1024&w=is&k=20&c=46EP0leyUuLJThDmoQauFJXIG1tVf0PF55TvNBss98U=", // Static fallback
+    type: "video",
+    url: "https://www.pexels.com/download/video/8499683/",
+    label: "Welcome to Montessori",
     title: "Nurturing Young Minds for a Brighter Future",
-    subtitle:
-      "Experience the Montessori difference where every child is valued.",
+    sub: "Experience the Montessori difference — where every child is valued, inspired, and empowered.",
+    primaryBtn: "Enroll Now",
+    secondaryBtn: "Take a Tour",
   },
   {
-    id: 2,
-    image:
-      "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=1200",
+    type: "image",
+    url: "/edmscaru3.jpg",
+    label: "Our Celebration",
     title: "A Community of Growth and Excellence",
-    subtitle:
-      "Our curriculum is designed to inspire curiosity and independence.",
+    sub: "Our curriculum is designed to inspire curiosity, independence, and a lifelong love of learning.",
+    primaryBtn: "Learn More",
+    secondaryBtn: "Meet Our Team",
   },
   {
-    id: 3,
-    image:
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=1200",
+    type: "image",
+    url: "/edmscaru.jpg",
+    label: "Our Community",
+    title: "A Community of Growth and Excellence",
+    sub: "Our curriculum is designed to inspire curiosity, independence, and a lifelong love of learning.",
+    primaryBtn: "Learn More",
+    secondaryBtn: "Meet Our Team",
+  },
+  {
+    type: "image",
+    url: "/edmscaru2.jpg",
+    label: "Admissions 2026/2027",
     title: "Enrollment Now Open for 2026/2027",
-    subtitle: "Join our family and give your child the best start in life.",
+    sub: "Join our family and give your child the very best start in life. Limited spots available.",
+    primaryBtn: "Apply Today",
+    secondaryBtn: "View Requirements",
   },
 ];
 
+const DURATION = 7000; // 7 seconds per slide
+
 const HeroCarousel = () => {
   const [current, setCurrent] = useState(0);
-  const [isMuted, setIsMuted] = useState(true);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const videoRef = useRef(null);
+  const [progress, setProgress] = useState(0);
+  const timerRef = useRef(null);
+  const startTimeRef = useRef(Date.now());
 
-  const nextSlide = useCallback(() => {
-    setCurrent((prev) => (prev === HERO_SLIDES.length - 1 ? 0 : prev + 1));
-    setIsVideoLoaded(false); // Reset loader for next video if applicable
+  const goTo = useCallback((index) => {
+    setCurrent((index + slides.length) % slides.length);
+    setProgress(0);
+    startTimeRef.current = Date.now();
   }, []);
 
-  const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? HERO_SLIDES.length - 1 : prev - 1));
-    setIsVideoLoaded(false);
-  };
-
+  // Progress Bar Logic
   useEffect(() => {
-    const timer = setInterval(nextSlide, 10000); // 10s for better video engagement
-    return () => clearInterval(timer);
-  }, [nextSlide]);
+    const interval = setInterval(() => {
+      const elapsed = Date.now() - startTimeRef.current;
+      const newProgress = Math.min((elapsed / DURATION) * 100, 100);
+      setProgress(newProgress);
+
+      if (newProgress >= 100) {
+        goTo(current + 1);
+      }
+    }, 16); // ~60fps
+
+    return () => clearInterval(interval);
+  }, [current, goTo]);
 
   return (
-    <section
+    <div
       id="home"
-      className="relative h-[85vh] w-full overflow-hidden bg-slate-950"
+      className="relative w-full h-[85vh] min-h-[500px] max-h-[800px] overflow-hidden bg-slate-950 font-sans"
     >
-      {HERO_SLIDES.map((slide, index) => (
-        <div
-          key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === current ? "opacity-100 z-10" : "opacity-0 z-0"
-          }`}
+      {/* Progress Bar */}
+      <div
+        className="absolute top-0 left-0 h-1 bg-[#4A60EF] z-50 transition-none"
+        style={{ width: `${progress}%` }}
+      />
+
+      {/* Slides */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0"
         >
-          {/* Background Media */}
-          <div className="absolute inset-0 overflow-hidden">
-            {slide.video ? (
-              <>
-                {/* Loader Overlay */}
-                {!isVideoLoaded && index === current && (
-                  <div className="absolute inset-0 z-20 flex items-center justify-center bg-slate-900">
-                    <Loader2 className="w-10 h-10 text-[#4A60EF] animate-spin" />
-                  </div>
-                )}
-                <video
-                  ref={videoRef}
-                  autoPlay
-                  loop
-                  muted={isMuted}
-                  playsInline
-                  onCanPlayThrough={() => setIsVideoLoaded(true)}
-                  poster={slide.poster}
-                  className={`h-full w-full object-cover transition-opacity duration-700 ${
-                    isVideoLoaded ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <source src={slide.video} type="video/mp4" />
-                </video>
-              </>
+          {/* Media Layer */}
+          <div className="absolute inset-0 z-0">
+            {slides[current].type === "video" ? (
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover scale-105"
+                src={slides[current].url}
+              />
             ) : (
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className={`h-full w-full object-cover transition-transform duration-8000ms ease-linear ${
-                  index === current ? "scale-110" : "scale-100"
-                }`}
+              <motion.img
+                initial={{ scale: 1 }}
+                animate={{ scale: 1.08 }}
+                transition={{ duration: 10, ease: "linear" }}
+                src={slides[current].url}
+                alt={slides[current].title}
+                className="w-full h-full object-cover"
               />
             )}
-
-            {/* dark Overlay */}
-            <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/80 z-10" />
+            {/* The Specific Gradient Overlay Requested (Bottom to Top) */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/20 z-10" />
           </div>
 
-          {/* Text Content */}
-          <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
-            <div
-              className={`max-w-4xl transition-all duration-1000 delay-300 transform ${
-                index === current
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-12 opacity-0"
-              }`}
+          {/* Content Layer */}
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-24 px-6 text-center">
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="max-w-3xl"
             >
-              <h1 className="text-4xl md:text-7xl font-extrabold text-white leading-tight tracking-tighter drop-shadow-2xl">
-                {slide.title}
+              <span className="inline-block px-4 py-1 mb-6 text-[10px] font-black uppercase tracking-[0.2em] text-white/70 border border-white/20 rounded-full bg-white/5 backdrop-blur-md">
+                {slides[current].label}
+              </span>
+
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tighter leading-[1.1]">
+                {slides[current].title}
               </h1>
-              <p className="text-lg md:text-2xl text-slate-200 mt-6 max-w-2xl mx-auto font-light leading-relaxed">
-                {slide.subtitle}
+
+              <p className="text-lg md:text-xl text-white/70 mb-10 leading-relaxed max-w-2xl mx-auto">
+                {slides[current].sub}
               </p>
 
-              <div className="mt-10 flex flex-wrap gap-4 justify-center">
-                <button className="bg-[#4A60EF] hover:bg-[#ed5ab0] text-white px-10 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-xl">
-                  Enroll Now
+              <div className="flex flex-wrap justify-center gap-4">
+                <button className="px-8 py-4 bg-[#4A60EF] hover:bg-[#ed5ab0] text-white font-black rounded-2xl transition-all shadow-xl shadow-blue-900/20 flex items-center gap-2 group">
+                  {slides[current].primaryBtn}
+                  <ArrowRight
+                    size={18}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
                 </button>
-                <button className="bg-white/10 hover:bg-white/20 backdrop-blur-md border-2 border-white/30 text-white px-10 py-4 rounded-full font-bold text-lg transition-all">
-                  Take a Tour
+                <button className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-black rounded-2xl transition-all">
+                  {slides[current].secondaryBtn}
                 </button>
               </div>
-            </div>
+            </motion.div>
           </div>
-
-          {/* Mute/Unmute Toggle for Video Slide */}
-          {/* Video Specific Controls */}
-          {slide.video && index === current && isVideoLoaded && (
-            <button
-              onClick={() => setIsMuted(!isMuted)}
-              className="absolute bottom-28 right-10 z-30 p-4 rounded-full bg-white/10 text-white hover:bg-[#4A60EF] backdrop-blur-md transition-all border border-white/20"
-            >
-              {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-            </button>
-          )}
-        </div>
-      ))}
+        </motion.div>
+      </AnimatePresence>
 
       {/* Navigation Controls */}
-      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4 md:px-8 z-20 pointer-events-none">
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-30 flex justify-between px-4 md:px-10 pointer-events-none">
         <button
-          onClick={prevSlide}
-          className="pointer-events-auto p-3 rounded-full bg-white/10 text-white hover:bg-[#4A60EF] backdrop-blur-md transition-all"
+          onClick={() => goTo(current - 1)}
+          className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#4A60EF] transition-all pointer-events-auto backdrop-blur-sm"
         >
-          <ChevronLeft size={28} />
+          <ChevronLeft size={24} />
         </button>
         <button
-          onClick={nextSlide}
-          className="pointer-events-auto p-3 rounded-full bg-white/10 text-white hover:bg-[#4A60EF] backdrop-blur-md transition-all"
+          onClick={() => goTo(current + 1)}
+          className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#4A60EF] transition-all pointer-events-auto backdrop-blur-sm"
         >
-          <ChevronRight size={28} />
+          <ChevronRight size={24} />
         </button>
       </div>
 
-      {/* Progress Bars */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-        {HERO_SLIDES.map((_, i) => (
+      {/* Pagination Dots */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3 items-center">
+        {slides.map((_, i) => (
           <button
             key={i}
-            onClick={() => setCurrent(i)}
-            className="group relative h-1.5"
-          >
-            <div
-              className={`h-full rounded-full transition-all duration-300 ${
-                i === current ? "w-12 bg-[#4A60EF]" : "w-4 bg-white/40"
-              }`}
-            />
-          </button>
+            onClick={() => goTo(i)}
+            className={`h-1.5 rounded-full transition-all duration-500 ${
+              current === i
+                ? "w-10 bg-[#4A60EF]"
+                : "w-3 bg-white/30 hover:bg-white/50"
+            }`}
+          />
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 
