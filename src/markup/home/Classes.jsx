@@ -106,7 +106,7 @@ const Classes = () => {
               className="group bg-white rounded-[40px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-slate-100 flex flex-col h-full"
             >
               {/* Media Section */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-84 overflow-hidden">
                 <img
                   src={item.images}
                   alt={item.title}
@@ -148,18 +148,6 @@ const Classes = () => {
                     </span>
                     <span className="block text-sm font-black text-slate-800">
                       {item.age}
-                    </span>
-                  </div>
-                  <div className="bg-slate-50 p-4 rounded-3xl text-center border border-slate-100">
-                    <DollarSign
-                      size={20}
-                      className="mx-auto mb-1 text-orange-500"
-                    />
-                    <span className="block text-[10px] uppercase font-bold text-slate-400">
-                      Fee
-                    </span>
-                    <span className="block text-sm font-black text-slate-800">
-                      {item.fee}
                     </span>
                   </div>
                 </div>

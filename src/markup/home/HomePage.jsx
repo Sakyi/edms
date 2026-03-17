@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../layout/Navbarddd";
+import Navbar from "../layout/Navbar";
 import HeroCarousel from "./HeroCarousel";
 import Programs from "./Programs";
 import AboutSection from "./AboutUs";
@@ -17,7 +17,7 @@ import Blog from "./NewsBlog";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen pb-[100vh]">
+    <div className="min-h-screen">
       <Navbar />
       <main>
         <HeroCarousel />
@@ -25,9 +25,8 @@ const HomePage = () => {
         <AboutSection />
         <Classes />
         <Programs />
-        <TeachersSection />
-        <Gallery />
         <MeetTheTeam />
+        <Gallery />
         <Testimonials />
         <FAQ />
         <Blog />

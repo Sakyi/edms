@@ -18,7 +18,7 @@ const GALLERY_ITEMS = [
     id: 1,
     category: "Classrooms",
     title: "Montessori Workspace",
-    img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800",
+    img: "/edmscaru5.jpg",
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const GALLERY_ITEMS = [
     id: 3,
     category: "Ballet",
     title: "Grace & Movement",
-    img: "https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?q=80&w=800",
+    img: "/edms-ballet.jpg",
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const GALLERY_ITEMS = [
     id: 5,
     category: "Cadet",
     title: "Leadership Training",
-    img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800",
+    img: "/edms-cardet.jpg",
   },
   {
     id: 6,
@@ -60,13 +60,31 @@ const GALLERY_ITEMS = [
     id: 8,
     category: "Others",
     title: "Outdoor Play",
-    img: "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?q=80&w=800",
+    img: "/edms-others1.jpg",
+  },
+  {
+    id: 8,
+    category: "Others",
+    title: "Outdoor Play",
+    img: "/edms-others1.jpg",
+  },
+  {
+    id: 8,
+    category: "Others",
+    title: "Outdoor Play",
+    img: "/edms-others1.jpg",
+  },
+  {
+    id: 8,
+    category: "Others",
+    title: "Outdoor Play",
+    img: "/edms-others1.jpg",
   },
   {
     id: 9,
     category: "Classrooms",
     title: "Creative Arts",
-    img: "https://images.unsplash.com/photo-1453749024858-4bca89bd9edc?q=80&w=800",
+    img: "/edmscaru6.jpg",
   },
 ];
 
@@ -82,7 +100,7 @@ const Gallery = () => {
   // Navigation functions for the lightbox
   const navigateLightbox = (direction) => {
     const currentIndex = GALLERY_ITEMS.findIndex(
-      (img) => img.id === selectedImage.id
+      (img) => img.id === selectedImage.id,
     );
     let nextIndex = currentIndex + direction;
     if (nextIndex >= GALLERY_ITEMS.length) nextIndex = 0;

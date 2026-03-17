@@ -13,6 +13,15 @@ const slides = [
     secondaryBtn: "Take a Tour",
   },
   {
+    type: "video",
+    url: "/edms-fitness.mp4",
+    label: "Sports and Fun",
+    title: "Edlys Fitness Club",
+    sub: "Experience the Montessori difference — where every child is valued, inspired, and empowered.",
+    primaryBtn: "Enroll Now",
+    secondaryBtn: "Take a Tour",
+  },
+  {
     type: "image",
     url: "/edmscaru3.jpg",
     label: "Our Celebration",

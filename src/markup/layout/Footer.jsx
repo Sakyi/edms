@@ -120,7 +120,7 @@ const Footer = () => {
                         {item}
                       </button>
                     </li>
-                  )
+                  ),
                 )}
               </ul>
             </div>
@@ -134,14 +134,14 @@ const Footer = () => {
                 <li className="flex gap-4 text-slate-500">
                   <MapPin className="text-[#4A60EF] shrink-0" size={20} />
                   <span>
-                    6701 Democracy Blvd,
+                    North Legon (Kofi Annan Avenue),Accra-Ghana And
                     <br />
-                    Bethesda, MD 20817, USA
+                    Haatso-Mabey
                   </span>
                 </li>
                 <li className="flex gap-4 text-slate-500 font-bold">
                   <Phone className="text-[#4A60EF] shrink-0" size={20} />
-                  <span>+1 (123) 456-7890</span>
+                  <span>+233 24-492-1755 / +233 26-557-7950</span>
                 </li>
               </ul>
             </div>
@@ -168,7 +168,7 @@ const Footer = () => {
       </div>
 
       {/* --- Section 2: Links & Branding --- */}
-      <div className="border-t border-white/5 py-16 bg-black/20">
+      <div className="border-t border-white/5 py-16 bg-slate-900">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-10">
             <div className="flex items-center gap-4">
@@ -180,38 +180,11 @@ const Footer = () => {
                   EDLYS <span className="text-[#4A60EF]">MONTESSORI</span>
                 </h3>
                 <p className="text-slate-500 text-[10px] uppercase font-bold tracking-widest">
-                  Nurturing curiosity since 1998
+                  Nurturing curiosity since 2006
                 </p>
               </div>
             </div>
-
-            <div className="flex gap-4">
-              {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#4A60EF] hover:text-white transition-all"
-                >
-                  <Icon size={20} />
-                </a>
-              ))}
-            </div>
           </div>
-        </div>
-      </div>
-
-      {/* --- Bottom Copyright --- */}
-      <div className="bg-slate-50 py-6 border-t border-slate-100">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-400 text-sm font-medium">
-            © {currentYear} Edlys Montessori School. All rights reserved.
-          </p>
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex items-center gap-2 text-[#4A60EF] font-bold text-sm uppercase tracking-widest hover:text-[#ed5ab0] transition-colors"
-          >
-            Back to Top <ArrowUp size={16} />
-          </button>
         </div>
       </div>
     </footer>

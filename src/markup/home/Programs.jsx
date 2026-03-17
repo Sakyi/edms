@@ -8,61 +8,58 @@ import {
   PaletteIcon,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { ThemedProgramCard } from "../components/ThemedProgramCard";
 
 const PROGRAMS = [
   {
     id: "p1",
     title: "Montessori Preschool",
     age: "2 - 4 Years",
-    desc: "Focusing on sensory-based learning and social development in a nurturing environment.",
-    icon: <PaletteIcon className="text-[#ed5ab0]" size={32} />,
-    color: "border-[#ed5ab0]/20 hover:bg-[#ed5ab0]/5",
-    dot: "bg-[#ed5ab0]",
+    desc: "Sensory-based learning and social development in a nurturing environment.",
+    icon: <PaletteIcon size={24} />,
+    image: "/edms-preschool.jpg",
+    // Individual theme colors
+    theme: "from-pink-600/90",
+    badge: "bg-pink-500",
+    btnHover: "hover:bg-pink-500",
+    btn: "bg-pink-500",
   },
   {
     id: "p2",
-    title: "Elementary School",
+    title: "Primary School",
     age: "5 - 10 Years",
-    desc: "A rigorous curriculum designed to spark curiosity in science, math, and the arts.",
-    icon: <Microscope className="text-[#4A60EF]" size={32} />,
-    color: "border-[#4A60EF]/20 hover:bg-[#4A60EF]/5",
-    dot: "bg-[#4A60EF]",
+    desc: "Rigorous curriculum designed to spark curiosity in science, math, and arts.",
+    icon: <Microscope size={24} />,
+    image: "/edms-primary.jpg",
+    theme: "from-blue-600/90",
+    badge: "bg-blue-500",
+    btnHover: "hover:bg-blue-500",
+    btn: "bg-blue-500",
   },
   {
     id: "p3",
     title: "STEM & Robotics",
     age: "7+ Years",
-    desc: "Hands-on coding and engineering projects to prepare students for a digital future.",
-    icon: <BookOpen className="text-orange-500" size={32} />,
-    color: "border-orange-500/20 hover:bg-orange-500/5",
-    dot: "bg-orange-500",
+    desc: "Hands-on coding and engineering projects for a digital future.",
+    icon: <BookOpen size={24} />,
+    image:
+      "https://images.unsplash.com/photo-1581091215367-9b6c00b3035a?q=80&w=600&auto=format&fit=crop",
+    theme: "from-orange-600/90",
+    badge: "bg-orange-500",
+    btnHover: "hover:bg-orange-500",
+    btn: "bg-orange-500",
   },
   {
     id: "p4",
     title: "Arts & Music",
     age: "All Ages",
-    desc: "Unleashing creativity through professional training in painting, piano, and dance.",
-    icon: <Music className="text-purple-500" size={32} />,
-    color: "border-purple-500/20 hover:bg-purple-500/5",
-    dot: "bg-purple-500",
-  },
-  {
-    id: "p5",
-    title: "Language Hub",
-    age: "4+ Years",
-    desc: "Immersive bilingual programs focusing on Spanish, French, and Mandarin Chinese.",
-    icon: <Globe className="text-emerald-500" size={32} />,
-    color: "border-emerald-500/20 hover:bg-emerald-500/5",
-    dot: "bg-emerald-500",
-  },
-  {
-    id: "p6",
-    title: "Sports Academy",
-    age: "5+ Years",
-    desc: "Promoting physical health and teamwork through soccer, swimming, and gymnastics.",
-    icon: <Trophy className="text-amber-500" size={32} />,
-    color: "border-amber-500/20 hover:bg-amber-500/5",
-    dot: "bg-amber-500",
+    desc: "Unleashing creativity through professional training in painting and piano.",
+    icon: <Music size={24} />,
+    image: "/edms-arts.jpg",
+    theme: "from-purple-600/90",
+    badge: "bg-purple-500",
+    btnHover: "hover:bg-purple-500",
+    btn: "bg-purple-500",
   },
 ];
 
@@ -105,41 +102,14 @@ const Programs = () => {
         </div>
 
         {/* Programs Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {PROGRAMS.map((program, index) => (
-            <motion.div
+            <ThemedProgramCard
               key={program.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`p-8 rounded-3xl border-2 transition-all duration-300 group ${program.color}`}
-            >
-              <div className="flex justify-between items-start mb-6">
-                <div className="p-4 rounded-2xl bg-white shadow-sm group-hover:shadow-md transition-shadow">
-                  {program.icon}
-                </div>
-                <span
-                  className={`px-4 py-1 rounded-full text-xs font-bold text-white ${program.dot}`}
-                >
-                  {program.age}
-                </span>
-              </div>
-
-              <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-[#4A60EF] transition-colors">
-                {program.title}
-              </h3>
-              <p className="text-slate-600 leading-relaxed mb-6">
-                {program.desc}
-              </p>
-
-              <button className="flex items-center gap-2 font-bold text-sm uppercase tracking-wider text-slate-400 group-hover:text-[#4A60EF] transition-all">
-                Learn More
-                <span className="group-hover:translate-x-1 transition-transform">
-                  →
-                </span>
-              </button>
-            </motion.div>
+              program={program}
+              index={index}
+            />
           ))}
         </div>
 

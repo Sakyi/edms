@@ -48,7 +48,9 @@ const ContactSection = () => {
                   <p className="text-slate-400 text-sm font-bold uppercase">
                     Call Us
                   </p>
-                  <p className="text-xl font-bold">+1 (123) 456-7890</p>
+                  <p className="text-xl font-bold">
+                    +233 24-492-1755 / +233 26-557-7950
+                  </p>
                 </div>
               </div>
 
@@ -72,7 +74,9 @@ const ContactSection = () => {
                   <p className="text-slate-400 text-sm font-bold uppercase">
                     Visit Us
                   </p>
-                  <p className="text-xl font-bold">6701 Democracy Blvd, USA</p>
+                  <p className="text-xl font-bold">
+                    North Legon (Kofi Annan Avenue), Accra-Ghana
+                  </p>
                 </div>
               </div>
             </div>
@@ -157,7 +161,7 @@ const ContactSection = () => {
                     "SENDING..."
                   ) : (
                     <>
-                      SUBMITINQUIRY
+                      SUBMIT INQUIRY
                       <Send size={20} />
                     </>
                   )}
@@ -168,16 +172,29 @@ const ContactSection = () => {
         </div>
 
         {/* Simple Map Placeholder / Integration */}
-        <div className="mt-24 rounded-[40px] overflow-hidden h-[400px] border border-white/10 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.788574187313!2d-77.14207!3d38.90719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDU0JzI1LjkiTiA3N8KwMDgnMzEuNSJX!5e0!3m2!1sen!2sus!4v1645000000000!5m2!1sen!2sus"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            title="School Location"
-          />
+        <div className="mt-24 flex gap-5 rounded-[40px] overflow-hidden h-[400px] border border-white/10 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+          <div className="w-[50%]">
+            <iframe
+              src="https://www.google.com/maps/embed/v1/place?q=edlys%20montessori%20school&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              title="School Location"
+            />
+          </div>
+          <div className="w-[50%]">
+            <iframe
+              src="https://www.google.com/maps/embed/v1/place?q=edlys%20montessori%20school%20haatso&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              title="School Location"
+            />
+          </div>
         </div>
       </div>
     </section>
